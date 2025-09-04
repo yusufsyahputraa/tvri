@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Jadwal Acara{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded-xl shadow-md">
+  <h2 class="text-2xl font-bold mb-4">📺 Jadwal Acara</h2>
+
+  {% if jadwal %}
+    <ul class="space-y-3">
+      {% for j in jadwal %}
+        <li class="p-4 bg-gray-50 rounded-lg shadow-sm">
+          <p class="text-lg font-semibold">{{ j.acara }}</p>
+          <p class="text-sm text-gray-600">{{ j.tanggal }} | {{ j.waktu }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-gray-500">Belum ada jadwal tersedia.</p>
+  {% endif %}
+</div>
+{% endblock %}

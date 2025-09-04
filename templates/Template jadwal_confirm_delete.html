@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-white p-6 rounded-xl shadow-md text-center">
+  <h2 class="text-xl mb-4">⚠️ Hapus Jadwal</h2>
+  <p>Apakah kamu yakin ingin menghapus jadwal: <b>{{ jadwal }}</b> ?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded-lg">Ya, Hapus</button>
+    <a href="{% url 'jadwal_list' %}" class="ml-3 bg-gray-400 text-white px-4 py-2 rounded-lg">Batal</a>
+  </form>
+</div>
+{% endblock %}

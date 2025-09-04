@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Saran & Kritik{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded-xl shadow-md">
+  <h2 class="text-xl font-semibold mb-4">💬 Saran & Kritik</h2>
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <textarea class="w-full p-3 border rounded-xl" rows="4" placeholder="Tulis saran atau kritik Anda..."></textarea>
+    <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded-xl hover:bg-red-600">Kirim</button>
+  </form>
+</div>
+{% endblock %}

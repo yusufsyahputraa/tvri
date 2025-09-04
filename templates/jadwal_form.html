@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-red p-6 rounded-xl shadow-md max-w-lg mx-auto">
+  <h2 class="text-xl font-bold mb-4">Tambah Jadwal Acara</h2>  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="mt-4 flex space-x-2">
+      <button type="submit" class="bg-blue-600 text-blue px-4 py-2 rounded-lg">Simpan Jadwal</button> 
+      <a href="{% url 'jadwal_list' %}" class="bg-gray-400 text-blue px-4 py-2 rounded-lg">Kembali</a> 
+    </div>
+  </form>
+</div>
+{% endblock %}

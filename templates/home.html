@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home - TVRI Kaltim{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section dengan ornamen batik -->
+<div class="relative bg-gradient-to-r from-blue-700 to-white-500 text-white rounded-xl p-10 mb-12 shadow-lg overflow-hidden">
+  
+  <!-- Background batik -->
+  <div class="absolute inset-0 opacity-30 bg-[url('{% static 'images/batik-kaltim.jpg' %}')] bg-repeat"></div>
+  
+  <div class="relative z-10">
+    <h1 class="text-3xl font-bold mb-3">Selamat Datang di TVRI Kalimantan Timur</h1>
+    <p class="text-lg">Nikmati siaran langsung, jadwal acara terkini, dan hiburan khas Kaltim setiap hari.</p>
+    <div class="mt-6 space-x-3">
+      <a href="{% url 'live' %}" class="bg-white text-green-700 px-5 py-2 rounded-lg font-semibold shadow hover:bg-gray-100">Tonton Live</a>
+      <a href="{% url 'jadwal' %}" class="bg-black text-white px-5 py-2 rounded-lg font-semibold shadow hover:bg-gray-800">Lihat Jadwal</a>
+    </div>
+  </div>
+</div>
+
+<!-- Acara Unggulan Hari Ini -->
+<div class="mb-12">
+  <h2 class="text-2xl font-semibold mb-6 text-blue-700"> Acara Unggulan Hari Ini</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="" alt="Berita Pagi" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold text-lg">Ngapeh</h3>
+        <p class="text-gray-600 text-sm">08:00 WIB</p>
+      </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://source.unsplash.com/600x300/?tv-drama" alt="Drama Series" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold text-lg">Publika</h3>
+        <p class="text-gray-600 text-sm">19:00 WIB</p>
+      </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+      <img src="https://source.unsplash.com/600x300/?cinema" alt="Film Malam" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold text-lg">KTHI</h3>
+        <p class="text-gray-600 text-sm">21:00 WIB</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Fitur Menarik -->
+<div>
+  <h2 class="text-2xl font-semibold mb-6 text-green-700">✨ Fitur Menarik</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+      <h3 class="font-bold text-lg mb-2">🔔 Notifikasi Acara</h3>
+      <p class="text-gray-600">Dapatkan pengingat sebelum acara favoritmu dimulai.</p>
+    </div>
+    
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+      <h3 class="font-bold text-lg mb-2">⭐ Favoritkan Acara</h3>
+      <p class="text-gray-600">Simpan acara favorit untuk akses lebih cepat.</p>
+    </div>
+    
+    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+      <h3 class="font-bold text-lg mb-2">💬 Interaksi Penonton</h3>
+      <p class="text-gray-600">Ikut voting & komentar saat siaran live berlangsung.</p>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

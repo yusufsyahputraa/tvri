@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Live TV{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 rounded-xl shadow-md">
+  <h2 class="text-xl font-semibold mb-4">🔴 Live Streaming</h2>
+  <div class="aspect-video bg-black rounded-2xl flex items-center justify-center text-white">
+    {% if video_id %}
+      <iframe class="w-full h-full rounded-2xl"
+          src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+      </iframe>
+    {% else %}
+      <p>TVRI sedang tidak live.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
