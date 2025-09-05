@@ -9,7 +9,7 @@ def jadwal_list(request):
 
 def jadwal_create(request):
     if request.method == 'POST':
-        form = JadwalForm(request.POST)
+        form = JadwalForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('jadwal_list')
@@ -20,7 +20,7 @@ def jadwal_create(request):
 def jadwal_update(request, pk):
     jadwal = get_object_or_404(Jadwal, pk=pk)
     if request.method == 'POST':
-        form = JadwalForm(request.POST, instance=jadwal)
+        form = JadwalForm(request.POST, request.FILES, instance=jadwal)
         if form.is_valid():
             form.save()
             return redirect('jadwal_list')
@@ -33,7 +33,7 @@ def jadwal_delete(request, pk):
     if request.method == 'POST':
         jadwal.delete()
         return redirect('jadwal_list')
-    return render(request, 'jadwal_confirm_delete.html', {'jadwal': jadwal})
+    return render(request, 'jadwal_delete.html', {'jadwal': jadwal})
 
 API_KEY = "AIzaSyCOyxduxxMam_gLAfxPfYL2HdgUi3SW90g"
 CHANNEL_ID = "UCjtIzhP7MMzl3ZODYnRrJkw"  

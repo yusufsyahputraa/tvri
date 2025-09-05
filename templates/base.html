@@ -8,21 +8,21 @@
   <title>{% block title %}TVRI KALIMANTAN TIMUR{% endblock %}</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-white min-h-screen flex flex-col">
+<body class="bg-white text-gray-900 min-h-screen flex flex-col">
 
   <!-- Navbar -->
-  <nav class="bg-gray-900 shadow-md px-6 py-4 flex items-center justify-between">
+  <nav class="bg-gray-100 shadow-md px-6 py-4 flex items-center justify-between">
     <div class="container mx-auto flex items-center justify-between p-4">
       <div class="flex items-center space-x-3">
         <img src="{% static 'images/logo-tvri.png' %}" alt="TVRI Kaltim" class="h-20">
-        <h1 class="text-xl font-bold text-green-400"></h1>
+        <h1 class="text-xl font-bold text-green-700"></h1>
       </div>
-      <h1 class="text-2xl font-bold text-blue-400"></h1>
+      <h1 class="text-2xl font-bold text-blue-700"></h1>
       <div class="flex space-x-6">
-        <a href="{% url 'home' %}" class="font-bold text-blue-400 hover:text-blue-300">Home</a>
-        <a href="{% url 'jadwal' %}" class="font-bold text-blue-400 hover:text-blue-300">Jadwal</a>
-        <a href="{% url 'live' %}" class="font-bold text-blue-400 hover:text-blue-300">Live</a>
-        <a href="{% url 'saran' %}" class="font-bold text-blue-400 hover:text-blue-300">Saran & Kritik</a>
+        <a href="{% url 'home' %}" class="font-bold text-blue-600 hover:text-blue-800">Home</a>
+        <a href="{% url 'jadwal' %}" class="font-bold text-blue-600 hover:text-blue-800">Jadwal</a>
+        <a href="{% url 'live' %}" class="font-bold text-blue-600 hover:text-blue-800">Live</a>
+        <a href="{% url 'saran' %}" class="font-bold text-blue-600 hover:text-blue-800">Saran & Kritik</a>
       </div>
     </div>
   </nav>
