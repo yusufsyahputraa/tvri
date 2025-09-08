@@ -2,32 +2,33 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Jadwal
 from .forms import JadwalForm
 import requests
+from .forms import JadwalFormSet
 
 def jadwal_list(request):
     jadwals = Jadwal.objects.all()
     return render(request, 'jadwal_list.html', {'jadwals': jadwals})
 
 def jadwal_create(request):
-    if request.method == 'POST':
-        form = JadwalForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('jadwal_list')
+    if request.method == "POST":
+        formset = JadwalFormSet(request.POST, queryset=Jadwal.objects.none())
+        if formset.is_valid():
+            formset.save()
+            return redirect("jadwal_list")
     else:
-        form = JadwalForm()
-    return render(request, 'jadwal_form.html', {'form': form})
+        formset = JadwalFormSet(queryset=Jadwal.objects.none())
 
-def jadwal_update(request, pk):
-    jadwal = get_object_or_404(Jadwal, pk=pk)
-    if request.method == 'POST':
-        form = JadwalForm(request.POST, request.FILES, instance=jadwal)
-        if form.is_valid():
-            form.save()
-            return redirect('jadwal_list')
+    return render(request, "jadwal_form.html", {"formset": formset})
+
+def jadwal_update(request):
+    if request.method == "POST":
+        formset = JadwalFormSet(request.POST, queryset=Jadwal.objects.all())
+        if formset.is_valid():
+            formset.save()
+            return redirect("jadwal_list")
     else:
-        form = JadwalForm(instance=jadwal)
-    return render(request, 'jadwal_form.html', {'form': form})
+        formset = JadwalFormSet(queryset=Jadwal.objects.all())
 
+    return render(request, "jadwal_form.html", {"formset": formset})
 def jadwal_delete(request, pk):
     jadwal = get_object_or_404(Jadwal, pk=pk)
     if request.method == 'POST':

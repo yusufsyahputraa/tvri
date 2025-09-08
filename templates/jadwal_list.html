@@ -12,12 +12,13 @@
     <li class="border p-4 rounded-lg shadow-sm bg-gray-50">
       <div class="flex justify-between items-center">
         <div>
-          <p class="font-semibold text-lg">{{ j.nama_acara }}</p>
-          
-            <p class="text-sm text-gray-600">
-              {% if j.tanggal %} {{ j.tanggal|date:"j F Y" }} {% endif %}
-              {% if j.waktu %} | {{ j.waktu|time:"H:i" }} {% endif %}
-            </p>
+          <p class="font-semibold text-lg">{{ j.acara }}</p>
+
+          <p class="text-sm text-gray-600">
+            {% if j.tanggal %} {{ j.tanggal|date:"j F Y" }} {% endif %}
+            {% if j.waktu_mulai %} | {{ j.waktu_mulai|time:"H:i" }} {% endif %}
+            {% if j.waktu_selesai %} - {{ j.waktu_selesai|time:"H:i" }} {% endif %}
+          </p>
           
           {% if j.deskripsi %}
           <p class="text-gray-700 mt-1">{{ j.deskripsi }}</p>
